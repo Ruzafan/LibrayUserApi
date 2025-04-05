@@ -8,8 +8,11 @@ public static class Mapper
     {
         return new Response()
         {
+            UserName = user.Username,
             Name = user.Name,
+            Surname = user.Surname,
             Image = user.Image,
+            Create = user.Created,
             
         };
     }

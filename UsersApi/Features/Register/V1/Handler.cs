@@ -21,7 +21,8 @@ public class Handler (IRepository<User> userRepository, IConfiguration config)
             Password = request.Password.CalculateSha256(),
             Name = request.Name,
             Surname = request.Surname,
-            Image = request.Image
+            Image = request.Image,
+            Created = DateTime.UtcNow,
         }, cancellationToken);
 
         return new Response();
