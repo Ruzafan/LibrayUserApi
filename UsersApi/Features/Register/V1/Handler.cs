@@ -19,6 +19,8 @@ public class Handler (IRepository<User> userRepository, IConfiguration config)
         {
             Username = request.Username,
             Password = request.Password.CalculateSha256(),
+            Name = request.Name,
+            Surname = request.Surname
         }, cancellationToken);
 
         return new Response();
