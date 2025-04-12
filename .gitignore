@@ -1,0 +1,15 @@
+/.idea/.idea.Users/.idea/vcs.xml
+/UsersApi/bin/Debug/net9.0/Azure.Core.dll
+/UsersApi/bin/Debug/net9.0/Azure.Storage.Blobs.dll
+/UsersApi/bin/Debug/net9.0/Azure.Storage.Common.dll
+/UsersApi/bin/Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll
+/UsersApi/bin/Debug/net9.0/System.ClientModel.dll
+/UsersApi/bin/Debug/net9.0/System.IO.Hashing.dll
+/UsersApi/bin/Debug/net9.0/System.Memory.Data.dll
+/UsersApi/obj/Debug/net9.0/UsersApi.sourcelink.json
+/UsersApi/bin/
+/UsersApi/obj/
+/UsersApi/bin/*
+/UsersApi/obj/*
+/UsersApi/bin
+/UsersApi/obj
