@@ -32,7 +32,7 @@ public class Handler (IRepository<User> userRepository, IConfiguration config)
     private async Task<string> UploadImage(IFormFile file)
     {
         var storageConnectionString = config["AzureBlob_ConnectionString"];
-        var containerName = "user_images";
+        var containerName = "userimages";
 
         var blobServiceClient = new BlobServiceClient(storageConnectionString);
         var containerClient = blobServiceClient.GetBlobContainerClient(containerName);
