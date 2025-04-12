@@ -27,7 +27,7 @@ public class Repository<T> : IRepository<T> where T : class
 
     public Task<T?> Get(string id, CancellationToken cancellationToken)
     {
-        var filter = Builders<T>.Filter.Eq("Id", id);
+        var filter = Builders<T>.Filter.Eq("_id", id);
         
         return _mongoCollection.Find(filter).FirstAsync(cancellationToken);
     }
