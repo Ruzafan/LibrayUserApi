@@ -10,6 +10,7 @@ using UsersApi.Features.AddFriend.V1;
 using UsersApi.Features.GetUser.V1;
 using UsersApi.Features.Login.V1;
 using UsersApi.Features.Register.V1;
+using UsersApi.Features.UpdateProfile.V1;
 
 namespace UsersApi.Extensions;
 
@@ -28,6 +29,7 @@ public static class ServiceCollectionExtension
         services.AddSingleton<Features.Login.V1.Handler>();
         services.AddSingleton<Features.GetUser.V1.Handler>();
         services.AddSingleton<Features.Register.V1.Handler>();
+        services.AddSingleton<Features.UpdateProfile.V1.Handler>();
         
         services.AddSingleton<Repositories.IRepository<User>, Repositories.Repository<User>>();
         return services;
@@ -39,6 +41,7 @@ public static class ServiceCollectionExtension
         app.MapGetUserEndpoint();
         app.MapRegisterEndpoint();
         app.MapAddFriendEndpoint();
+        app.MapUpdateProfileEndpoint();
     }
     
     public static IServiceCollection AddJWT(this IServiceCollection services, IConfiguration configuration)

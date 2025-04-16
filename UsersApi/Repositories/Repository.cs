@@ -44,8 +44,15 @@ public class Repository<T> : IRepository<T> where T : class
 
     public async Task AddFriend(string userId, string friend, CancellationToken cancellationToken)
     {
-        var filter = Builders<T>.Filter.Eq("Id", userId);
+        var filter = Builders<T>.Filter.Eq("_id", userId);
         var update = Builders<T>.Update.AddToSet("Friends", friend);
+        await _mongoCollection.UpdateOneAsync(filter, update, new UpdateOptions(), cancellationToken);
+    }
+    
+    public async Task UpdateImage(string userId, string image, CancellationToken cancellationToken)
+    {
+        var filter = Builders<T>.Filter.Eq("_id", userId);
+        var update = Builders<T>.Update.Set("Image", image);
         await _mongoCollection.UpdateOneAsync(filter, update, new UpdateOptions(), cancellationToken);
     }
 }

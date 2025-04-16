@@ -13,7 +13,7 @@ public static class Mapper
             Surname = user.Surname,
             Image = user.Image,
             Create = user.Created,
-            
+            ProfileId = user.Id,
         };
     }
 }
