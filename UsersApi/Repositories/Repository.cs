@@ -55,5 +55,11 @@ public class Repository<T> : IRepository<T> where T : class
         var update = Builders<T>.Update.Set("Image", image);
         await _mongoCollection.UpdateOneAsync(filter, update, new UpdateOptions(), cancellationToken);
     }
+    
+    public async Task Update(string id, UpdateDefinition<T> element, CancellationToken cancellationToken)
+    {
+        var filter = Builders<T>.Filter.Eq("_id", id);
+        await _mongoCollection.UpdateOneAsync(filter, element,null, cancellationToken);
+    }
 }
 

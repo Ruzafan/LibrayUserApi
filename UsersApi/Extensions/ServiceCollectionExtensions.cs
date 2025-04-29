@@ -32,6 +32,7 @@ public static class ServiceCollectionExtension
         services.AddSingleton<Features.UpdateProfile.V1.Handler>();
         
         services.AddSingleton<Repositories.IRepository<User>, Repositories.Repository<User>>();
+        services.AddSingleton<Repositories.IRepository<FriendRequest>, Repositories.Repository<FriendRequest>>();
         return services;
     }
     

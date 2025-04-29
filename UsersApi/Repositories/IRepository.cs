@@ -16,4 +16,5 @@ public interface IRepository<T> where T : class
 
     Task AddFriend(string userId, string friend, CancellationToken cancellationToken);
     Task UpdateImage(string userId, string image, CancellationToken cancellationToken);
+    Task Update(string id, UpdateDefinition<T> element, CancellationToken cancellationToken);
 }

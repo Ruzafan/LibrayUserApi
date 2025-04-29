@@ -4,7 +4,7 @@ namespace UsersApi.Features.GetUser.V1;
 
 public static class Mapper
 {
-    public static Response ToResponse(this User user)
+    public static Response ToResponse(this User user, List<FriendRequest> friendsRequests)
     {
         return new Response()
         {
@@ -13,7 +13,15 @@ public static class Mapper
             Surname = user.Surname,
             Image = user.Image,
             Create = user.Created,
-            ProfileId = user.Id,
+            //Friends = friendsRequests.ToFriends()
         };
     }
+
+    // public static List<Friend> ToFriends(this User user, List<FriendRequest> friendsRequests)
+    // {
+    //     friendsRequests.Select(q=> new Friend()
+    //     {
+    //         UserName = q.,
+    //     })
+    // }
 }
