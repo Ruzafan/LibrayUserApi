@@ -4,7 +4,7 @@ namespace UsersApi.Features.GetUser.V1;
 
 public static class Mapper
 {
-    public static Response ToResponse(this User user, List<FriendRequest> friendsRequests)
+    public static Response ToResponse(this User user, List<FriendRequest> friendsRequests, List<User> users)
     {
         return new Response()
         {
@@ -13,15 +13,23 @@ public static class Mapper
             Surname = user.Surname,
             Image = user.Image,
             Create = user.Created,
-            //Friends = friendsRequests.ToFriends()
+            Friends = friendsRequests.ToFriends(user, users)
         };
     }
 
-    // public static List<Friend> ToFriends(this User user, List<FriendRequest> friendsRequests)
-    // {
-    //     friendsRequests.Select(q=> new Friend()
-    //     {
-    //         UserName = q.,
-    //     })
-    // }
+    private static List<Friend> ToFriends(this List<FriendRequest> friendsRequests, User user, List<User> friends)
+    {
+        var result = new List<Friend>();
+        friendsRequests.ForEach(q =>
+        {
+            var currentFriend = friends.First(f => f.Id == (q.RequestedId == user.Id ? q.RequestorId : q.RequestedId));
+            result.Add(new Friend()
+            {
+                UserName = currentFriend.Username,
+                Image = currentFriend.Image,
+                Status = q.Status,
+            });
+        });
+        return result;
+    }
 }
