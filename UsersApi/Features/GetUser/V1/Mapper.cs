@@ -25,6 +25,7 @@ public static class Mapper
             var currentFriend = friends.First(f => f.Id == (q.RequestedId == user.Id ? q.RequestorId : q.RequestedId));
             result.Add(new Friend()
             {
+                Id = currentFriend.Id,
                 UserName = currentFriend.Username,
                 Image = currentFriend.Image,
                 Status = q.Status,

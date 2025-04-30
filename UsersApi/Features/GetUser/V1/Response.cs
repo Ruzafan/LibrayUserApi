@@ -14,6 +14,7 @@ public class Response
 
 public class Friend
 {
+    public string Id { get; set; }
     public string UserName { get; set; }
     public RequestStatus Status { get; set; }
     public string Image { get; set; }
