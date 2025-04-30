@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 using UsersApi.Entities;
 using UsersApi.Features.AddFriend.V1;
+using UsersApi.Features.GetFriend.V1;
 using UsersApi.Features.GetUser.V1;
 using UsersApi.Features.Login.V1;
 using UsersApi.Features.Register.V1;
@@ -30,6 +31,7 @@ public static class ServiceCollectionExtension
         services.AddSingleton<Features.GetUser.V1.Handler>();
         services.AddSingleton<Features.Register.V1.Handler>();
         services.AddSingleton<Features.UpdateProfile.V1.Handler>();
+        services.AddSingleton<Features.GetFriend.V1.Handler>();
         
         services.AddSingleton<Repositories.IRepository<User>, Repositories.Repository<User>>();
         services.AddSingleton<Repositories.IRepository<FriendRequest>, Repositories.Repository<FriendRequest>>();
@@ -43,6 +45,7 @@ public static class ServiceCollectionExtension
         app.MapRegisterEndpoint();
         app.MapAddFriendEndpoint();
         app.MapUpdateProfileEndpoint();
+        app.MapGetFriendEndpoint();
     }
     
     public static IServiceCollection AddJWT(this IServiceCollection services, IConfiguration configuration)
