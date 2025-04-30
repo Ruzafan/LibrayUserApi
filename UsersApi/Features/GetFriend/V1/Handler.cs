@@ -13,7 +13,7 @@ public class Handler(IRepository<User> userRepository, IRepository<FriendRequest
             Builders<User>.Filter.Eq(u => u.Id, friend));
         var users = await userRepository.QueryItems(filter, cancellationToken);
         if (users.Count < 2) return null;
-        var friendUser = users.FirstOrDefault(q => q.Username == friend);
+        var friendUser = users.FirstOrDefault(q => q.Id == friend);
         return friendUser?.ToResponse();
 
     }
