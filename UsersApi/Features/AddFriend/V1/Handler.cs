@@ -39,7 +39,8 @@ public class Handler(IRepository<User> userRepository, IRepository<FriendRequest
                 var update =Builders<FriendRequest>.Update.Set(f => f.Status, RequestStatus.Accepted);
                 await friendRequestRepository.Update(friendRequest.Id, update, cancellationToken);
             }
-            
+
+            return true;
         }
 
         return false;
