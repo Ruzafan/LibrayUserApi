@@ -44,7 +44,7 @@ public class Handler (IRepository<User> userRepository, IConfiguration config)
             await blobClient.UploadAsync(stream);
         }
 
-        return $"https://readrstorage.blob.core.windows.net/images/{fileName}";
+        return $"https://readrstorage.blob.core.windows.net/userimages/{fileName}";
             
     }
 
