@@ -21,7 +21,7 @@ public class Handler(IRepository<User> userRepository, IRepository<FriendRequest
                 Builders<FriendRequest>.Filter.In(u => u.RequestedId, users.Select(q=>q.Id)),
                 Builders<FriendRequest>.Filter.In(u => u.RequestorId, users.Select(q=>q.Id)));
             var friendRequests = await friendRequestRepository.QueryItems(filterFriendRequest, cancellationToken);
-            if (friendRequests != null)
+            if (friendRequests == null || friendRequests.Count == 0) 
             {
                 await friendRequestRepository.Add(new FriendRequest()
                 {
